@@ -1,60 +1,45 @@
 package org.example;
-
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 public class MainTest {
-
     @Test
-    public void reverse_shouldReversString_ifContainsString() {
+    public void shouldReversStringIfContainsString() {
         String result = Main.check("J@va the be$t!123");
-        Assertions.assertEquals("t@eb eht av$J!123", result);
+        assertEquals("t@eb eht av$J!123", result);
     }
-
     @Test
-    public void reverse_shouldReturnEmptyString_ifEmptyString() {
+    public void shouldReturnEmptyStringIfEmptyString() {
         String result = Main.check("");
-        Assertions.assertEquals("", result);
+        assertEquals("", result);
     }
-
     @Test
-    public void notReverse_shouldReturnAString_ifAString() {
+    public void notShouldReturnAStringIfAString() {
         String result = Main.check("a");
-        Assertions.assertEquals("a", result);
+        assertEquals("a", result);
     }
-
     @Test
-    public void notReverse_shouldReturnThisStringNotReverse_ifStringNotLetter() {
+    public void notShouldReturnThisStringNotReverseIfStringNotLetter() {
         String result = Main.check("123 !@#");
-        Assertions.assertEquals("123 !@#", result);
+        assertEquals("123 !@#", result);
     }
-
     @Test
-    public void notReverse_shouldReturnOnlyLetter_ifStringOnlyLetter() {
+    public void notShouldReturnOnlyLetterIfStringOnlyLetter() {
         String result = Main.check("abcde");
-        Assertions.assertEquals("edcba", result);
+        assertEquals("edcba", result);
     }
-
     @Test
-    public void reverse_shouldReversOnlyLetters_ifNotLettersAlongTheEdges() {
+    public void shouldReversOnlyLettersIfNotLettersAlongTheEdges() {
         String result = Main.check("123 qwerst !@#");
-        Assertions.assertEquals("123 tsrewq !@#", result);
+        assertEquals("123 tsrewq !@#", result);
     }
-
     @Test
-    public void reverse_shouldReversUpperCase_ifApperCase() {
+    public void shouldReversUpperCaseIfApperCase() {
         String result = Main.check("ABsef332EF");
-        Assertions.assertEquals("FEfes332BA", result);
+        assertEquals("FEfes332BA", result);
     }
-
     @Test
-    public void reverse_shouldExceptValueError_ifStringIsNull() {
+    public void shouldExceptValueErrorIfStringIsNull() {
         assertNull(Main.check(null));
     }
-
-
-
-
-
 }
